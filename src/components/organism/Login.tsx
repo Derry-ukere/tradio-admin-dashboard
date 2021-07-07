@@ -4,7 +4,7 @@ import {BeatLoader} from 'react-spinners';
 import { useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {loadingAction} from '../../actions/login';
+// import {loadingAction} from '../../actions/login';
 import {RootState} from '../../store';
 
 
@@ -28,7 +28,8 @@ const Login = () => {
 
   const handleSubmit = (e : {preventDefault : ()=> void})=>{
     e.preventDefault();
-    dispatch(loadingAction.main(email,password));
+    history.push('/dashboard');
+    // dispatch(loadingAction.main(email,password));
   };
   
   const onPaswwordChange = (e : {target : { value : any}}) =>{
