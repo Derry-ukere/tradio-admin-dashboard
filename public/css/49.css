@@ -1,0 +1,51 @@
+.iconWrap-qPFQFvJZ {
+  display: flex
+}
+
+.sfWarningIcon-qPFQFvJZ {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+  color: #f44336
+}
+
+.container-k0N_PwAy {
+  padding: 6px 38px 0 20px;
+  font-size: 11px;
+  line-height: 30px;
+  color: #787b86;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.dialog-19oA2XwG {
+  width: 100%
+}
+
+.tabletDialog-19oA2XwG {
+  max-width: 560px;
+  height: 562px
+}
+
+.desktopDialog-19oA2XwG {
+  height: 680px;
+  width: 100%;
+  min-width: 719px;
+  max-width: 840px
+}
+
+@media (max-width: 768px) {
+  .desktopDialog-19oA2XwG {
+      min-width:480px;
+      max-width: 640px
+  }
+}
+
+@media (max-width: 519px) {
+  .desktopDialog-19oA2XwG {
+      min-width:380px;
+      max-width: 479px
+  }
+}
