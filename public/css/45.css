@@ -1,0 +1,359 @@
+.bubble-3MTPKAgt {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 180px;
+  border-width: 1px;
+  border-style: solid;
+  flex: none;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  overflow: visible
+}
+
+.bubble-3MTPKAgt:focus {
+  outline: none
+}
+
+.bubble-3MTPKAgt:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-width: 2px;
+  border-style: solid;
+  opacity: 0
+}
+
+.bubble-3MTPKAgt:focus:after {
+  opacity: 1
+}
+
+.bubble-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt:after {
+  border-color: rgba(41,98,255,.5)
+}
+
+.bubble-3MTPKAgt.animated-3MTPKAgt:after {
+  transform: scale(.9);
+  transition-duration: .35s;
+  transition-timing-function: ease;
+  transition-property: opacity,transform,border-color;
+  will-change: border-color
+}
+
+.bubble-3MTPKAgt.animated-3MTPKAgt:focus:after {
+  transform: scale(1)
+}
+
+.bubble-3MTPKAgt .content-3MTPKAgt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt {
+  background-color: #f0f3fa;
+  border-color: #f0f3fa;
+  color: #131722
+}
+
+html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt {
+  color: #d1d4dc;
+  border-color: #2a2e39;
+  background-color: #2a2e39
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt:hover {
+      background-color:#e0e3eb;
+      border-color: #e0e3eb
+  }
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt:hover {
+      border-color:#363a45;
+      background-color: #363a45
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt {
+  background-color: #2962ff;
+  border-color: #2962ff;
+  color: #fff
+}
+
+html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt {
+  color: #fff;
+  border-color: #2962ff;
+  background-color: #2962ff
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt {
+  background-color: #ff5252
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:hover {
+      background-color:#f44336
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt {
+  background-color: #2979ff
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:hover {
+      background-color:#0c3299
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt {
+  background-color: #4caf50
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:hover {
+      background-color:#388e3c
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt {
+  background-color: #ff9100
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:hover {
+      background-color:#ef6c00
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt {
+  background-color: #ab47bc
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:hover {
+      background-color:#7b1fa2
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt {
+  background-color: #00e5ff
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:hover {
+      background-color:#00b8d4
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt {
+  background-color: #ff80ab
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:hover {
+      background-color:#ec407a
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt {
+  border-color: #ff5252
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:hover {
+      border-color:#f44336
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt {
+  border-color: #2979ff
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:hover {
+      border-color:#0c3299
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt {
+  border-color: #4caf50
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:hover {
+      border-color:#388e3c
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt {
+  border-color: #ff9100
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:hover {
+      border-color:#ef6c00
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt {
+  border-color: #ab47bc
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:hover {
+      border-color:#7b1fa2
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt {
+  border-color: #00e5ff
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:hover {
+      border-color:#00b8d4
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt {
+  border-color: #ff80ab
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:hover {
+      border-color:#ec407a
+  }
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.red-3MTPKAgt:after {
+  border-color: rgba(255,82,82,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.blue-3MTPKAgt:after {
+  border-color: rgba(41,121,255,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.green-3MTPKAgt:after {
+  border-color: rgba(76,175,80,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.orange-3MTPKAgt:after {
+  border-color: rgba(255,145,0,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.purple-3MTPKAgt:after {
+  border-color: rgba(171,71,188,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.cyan-3MTPKAgt:after {
+  border-color: rgba(0,229,255,.5)
+}
+
+.bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:after,html.theme-dark .bubble-3MTPKAgt.appearance-default-3MTPKAgt.active-3MTPKAgt.pink-3MTPKAgt:after {
+  border-color: rgba(255,128,171,.5)
+}
+
+.bubble-3MTPKAgt.appearance-text-3MTPKAgt {
+  background-color: transparent;
+  border-color: transparent;
+  color: #787b86
+}
+
+html.theme-dark .bubble-3MTPKAgt.appearance-text-3MTPKAgt {
+  color: #787b86
+}
+
+@media (any-hover: hover),(min--moz-device-pixel-ratio:0) {
+  .bubble-3MTPKAgt.appearance-text-3MTPKAgt:hover,html.theme-dark .bubble-3MTPKAgt.appearance-text-3MTPKAgt:hover {
+      border-color:#787b86
+  }
+}
+
+.bubble-3MTPKAgt.appearance-text-3MTPKAgt.active-3MTPKAgt {
+  border-color: #2962ff;
+  color: #2962ff
+}
+
+html.theme-dark .bubble-3MTPKAgt.appearance-text-3MTPKAgt.active-3MTPKAgt {
+  color: #2962ff;
+  border-color: #2962ff
+}
+
+.bubble-3MTPKAgt.size-m-3MTPKAgt {
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 14px
+}
+
+.bubble-3MTPKAgt.size-m-3MTPKAgt:after {
+  border-radius: 18px
+}
+
+.bubble-3MTPKAgt.size-l-3MTPKAgt {
+  height: 48px;
+  padding: 0 23px;
+  border-radius: 24px
+}
+
+.bubble-3MTPKAgt.size-l-3MTPKAgt:after {
+  border-radius: 28px
+}
+
+.bubbles-1cEBkyVM {
+  display: flex;
+  flex: 0 0 auto;
+  padding: 4px 20px 12px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
+.bubbles-1cEBkyVM.sb-scrollbar-wrap {
+  display: none
+}
+
+.bubbles-1cEBkyVM::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0
+}
+
+.bubbles-1cEBkyVM::-webkit-scrollbar-thumb,.bubbles-1cEBkyVM::-webkit-scrollbar-track {
+  display: none
+}
+
+.bubbles-1cEBkyVM::-webkit-scrollbar-corner {
+  display: none
+}
+
+.bubbles-1cEBkyVM.multiLine-1cEBkyVM {
+  flex-flow: wrap
+}
+
+.bubbles-1cEBkyVM .bubble-1cEBkyVM {
+  margin: 8px 8px 0 0;
+  cursor: default
+}
+
+.bubbles-1cEBkyVM .bubble-1cEBkyVM:last-child {
+  margin-right: 0
+}
+
+.bubbles-1cEBkyVM:after {
+  content: "";
+  display: flex;
+  flex: 0 0 auto;
+  width: 20px
+}
