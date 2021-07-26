@@ -29,9 +29,9 @@ function Router() {
               <Route path='/dashboard' exact component={Welcome} />
               <Route path='/account' exact component={Profile} />
               <Route path='/add-admin' exact component={Admin} />
-              <Route path='/new-admin' exact component={NewAdmin} />
+              <Route path='/new-admin' exact component={NewAdmin} /> 
               <Route path='/chat' exact component={Chat} />
-              <Route path='/settings/' exact component={Setting} />
+              <Route path='/settings/:id' exact component={Setting} />
               <Route path='/add-bank' exact component={Addbank} />
               <Route path='/bank-form' exact component={BankForm} />
               <Route path='/card-form' exact component={CardForm} />

@@ -1,52 +1,14 @@
 import { LOGIN_FAIL,LOGIN_LOADING,LOGIN_SUCCESS } from '../constants/login';
 
 export interface res {
-  data: {
-       overview: {
-        balance: number,
-        emailVerified: boolean,
-        blocked: boolean,
-        justDeposited: boolean,
-        bankDetailsProvided: boolean,
-        cardDetailsProvided: boolean
-      },
-      cardDetails: {
-        name: string,
-        number: number,
-        cvc: number,
-        expiry: number,
-        postalCode: number
-      },
-      bankDetails: {
-        accountNumber: number
-      },
-      wallet: {
-        availableBtc: number,
-        totalEquity: number,
-        availableMargin: number,
-        depositThisMonth: number,
-        lastDeposit: number
-      },
-      affiliateStatus: {
-        total: number,
-        previousDay: number
-      },
-      affiliatePayout: {
-        freePaidAmount: number,
-        level: number,
-        totalPayouts: number
-      },
-      maintainance: number,
-      unrealizedPl: number,
-      openPosition: number,
-      activeOders: number,
-      _id: string,
-      username: string,
-      email: string,
-      password: string,
-      __v: 0
-    }
-    token: string
+  'data': {
+    '_id': '60fdb1f7f35aea00157493bd',
+    'name': 'Morrisson',
+    'email': 'ukderry@gmail.com',
+    'password': string,
+    '__v': 0
+  },
+  'token': string
 }
  
 

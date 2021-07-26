@@ -1,8 +1,34 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
+// import {BeatLoader} from 'react-spinners';
+// import { useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {loadingAction} from '../../../actions/getAllClientsAct';
+import {RootState} from '../../../store';
 
 
 const History = () => {
+  const dispatch = useDispatch();
+  const allClients = useSelector( (state : RootState) => state.clients);
+  const {error,payload} = allClients;
+  // const history = useHistory();
+  
+
+  useEffect(()=>{
+    dispatch(loadingAction.main());
+  },[]);
+
+  useEffect(()=>{
+    if(payload){
+      // console.log('all clients--', payload);
+    }
+    console.log('error occured', error);
+  },[dispatch, payload, error]);
+
+  const handleClick = (id : string) =>{
+    console.log('delete client of id--', id);
+  };
+
   return (
     <div className="col-xl-12">
       <div className="card">
@@ -18,85 +44,33 @@ const History = () => {
                     <th>Transaction ID</th>
                     <th>Name</th>
                     <th>Country</th>
-                    <th>Amount</th>
-                    <th>Location</th>
                     <th>Balance</th>
+                    <th>Email</th>
+                    <th>age</th>
                     <th></th>
                     <th></th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-                    <td>
-                      <Link to = '/settings'><button className="btn btn-success waves-effect px-4">Edit</button></Link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-                    <td>
-                      <Link to = '/settings'><button className="btn btn-success waves-effect px-4">Edit</button></Link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-                    <td>
-                      <Link to = '/settings'><button className="btn btn-success waves-effect px-4">Edit</button></Link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-                    <td>
-                      <Link to = '/settings'><button className="btn btn-success waves-effect px-4">Edit</button></Link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-                    <td>
-                      <Link to = '/settings'><button className="btn btn-success waves-effect px-4">Edit</button></Link>
-                    </td>
-                  </tr>
+                  
+                  {payload && payload.map((client, index) =>
+                    <tr key = {index}>
+                      <td>#{client._id}</td>
+                      <td>{client.overview.name ? client.overview.name : 'No Name'}</td>
+                      <td>{client.overview.city ? client.overview.city : 'No location'}</td>
+                      <td>{client.overview.balance}USD</td>
+                      <td>{client.email}</td>
+                      <td>{client.overview.dob ? client.overview.dob : 'No Age'}</td>   
+                      <td>
+                        <button className="btn btn-success waves-effect px-4" onClick = { ()=> handleClick(client._id)} style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
+                      </td>
+                      <td>
+                        <Link to = {`/settings/${client._id}`}><button className="btn btn-success waves-effect px-4">Edit</button></Link>
+                      </td>
+                    </tr>
+                  )}
+                  
                 </tbody>
               </table>
             </div>

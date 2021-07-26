@@ -1,13 +1,13 @@
-import * as LoginTypes from '../interfaces/login';
-import * as LoginConstants from '../constants/login';
+import * as allClientsTypes from '../interfaces/getOneClient';
+import * as allClientsConstants from '../constants/getSingleClient';
 import { Dispatch } from 'react';
 import axios from 'axios';
 
 export const  loadingAction = {
-  main : (email: string, password: string) => async (dispatch :Dispatch <LoginTypes.actionType> )=>{
+  main : (id : string) => async (dispatch :Dispatch <allClientsTypes.actionType> )=>{
     try {
       dispatch({
-        type:LoginConstants.LOGIN_LOADING,
+        type:allClientsConstants.GET_ONE_CLIENT_LOADING,
         loading: true,
 
       });
@@ -16,18 +16,17 @@ export const  loadingAction = {
           'Content-type': 'application/json',
         },
       };
-      const {data} = await axios.post(`https://mighty-journey-39185.herokuapp.com/api/auth/login?email=${email}&password=${password}`,config);
-      localStorage.setItem('adminInfo', JSON.stringify(data));
+      const {data} = await axios.get(`https://tradio-client-services.herokuapp.com/api/client/lookupWithId?id=${id}`,config);
      
       dispatch({
-        type:LoginConstants.LOGIN_SUCCESS,
+        type:allClientsConstants.GET_ONE_CLIENT_SUCCESS,
         loading: false,
         payload:data
       });
         
     } catch (error) {
       dispatch({
-        type:LoginConstants.LOGIN_FAIL,
+        type:allClientsConstants.GET_ONE_CLIENT_FAIL,
         loading: false,
         error: error.response && error.response.data.message
           ? error.response.data.message
