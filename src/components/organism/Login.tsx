@@ -4,7 +4,7 @@ import {BeatLoader} from 'react-spinners';
 import { useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-// import {loadingAction} from '../../actions/login';
+import {loadingAction} from '../../actions/login';
 import {RootState} from '../../store';
 
 
@@ -21,15 +21,21 @@ const Login = () => {
   useEffect(()=>{
     if(payload){
       history.push('/dashboard');
+      console.log('payload is --', payload);
     }
     console.log('error',error);
   },[dispatch,payload]);
+
+  useEffect(()=>{
+    if(error){
+      alert(error );
+    }
+  },[dispatch,error]);
   
 
   const handleSubmit = (e : {preventDefault : ()=> void})=>{
     e.preventDefault();
-    history.push('/dashboard');
-    // dispatch(loadingAction.main(email,password));
+    dispatch(loadingAction.main(email,password));
   };
   
   const onPaswwordChange = (e : {target : { value : any}}) =>{
