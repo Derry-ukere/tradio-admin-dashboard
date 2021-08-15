@@ -4,13 +4,17 @@ import LoginReducer from './login';
 import RegisterReducer from './register';
 import AllClient from './getAllClientRed';
 import OneClient from './getOneClientRed';
-import Update from './updateAmount';
+import UpdateAmount from './updateAmount';
 
 export const rootReducer = combineReducers({
   demo:DemoReducers.demo,
   login:LoginReducer.login,
   register:RegisterReducer.register,
   clients:AllClient.get,
+  allAdmins:AllClient.getAllMin,
   client:OneClient.get,
-  updateAmountState:Update.get,
+  deleteClient:OneClient.deleteClient,
+  updateAmountState:UpdateAmount.get,
+  updateProfitState:UpdateAmount.updateProfit,
+
 });

@@ -29,6 +29,29 @@ export default class getClientReducers {
               
       }
     };
+
+    static  getAllMin = (state:clientTypes.AllAdminInitalState = defaultState, action:clientTypes.getAminactionType ) : clientTypes.initalState  => {
+      switch (action.type) {
+        case constants.GET_ALL_ADMIN_LOADING:
+          return {
+            loading : true
+          };
+        case constants.GET_ALL_ADMIN_SUCCESS:
+          return {
+            loading : false,
+            payload:action.payload,
+          }; 
+        case constants.GET_ALL_ADMIN_FAIL:
+          return {
+            loading : false,
+            error: action.error
+          };    
+          
+        default:
+          return state;
+              
+      }
+    };
 }
 
 

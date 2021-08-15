@@ -1,4 +1,4 @@
-import { UPDATE_AMOUNT_FAIL,UPDATE_AMOUNT_LOADING,UPDATE_AMOUNT_SUCCESS } from '../constants/updateAmount';
+import { UPDATE_AMOUNT_FAIL,UPDATE_AMOUNT_LOADING,UPDATE_AMOUNT_SUCCESS,UPDATE_PROFIT_LOADING,UPDATE_PROFIT_SUCCESS,UPDATE__PROFIT_FAIL } from '../constants/updateAmount';
 
 export interface res {
   overview: {
@@ -57,9 +57,21 @@ export interface UPDATE_AMOUNT_FAIL {
     error: typeof Error
 }
 
+
+export interface UPDATE__PROFIT_FAIL {
+  type: typeof UPDATE__PROFIT_FAIL
+  loading: boolean,
+  error: typeof Error
+}
 export interface UPDATE_AMOUNT_LOADING {
     type: typeof UPDATE_AMOUNT_LOADING
     loading: boolean,
+
+}
+
+export interface UPDATE_PROFIT_LOADING {
+  type: typeof UPDATE_PROFIT_LOADING
+  loading: boolean,
 
 }
 
@@ -67,15 +79,33 @@ export interface UPDATE_AMOUNT_LOADING {
 
 export type actionType = UPDATE_AMOUNT_FAIL | UPDATE_AMOUNT_LOADING | UPDATE_AMOUNT_SUCCESS;
 
+export type profitActionType = UPDATE__PROFIT_FAIL | UPDATE_PROFIT_LOADING | UPDATE_PROFIT_SUCCESS;
+
+
 
 export interface UPDATE_AMOUNT_SUCCESS {
     type: typeof UPDATE_AMOUNT_SUCCESS,
     loading: boolean,
     payload: res
 }
+
+export interface UPDATE_PROFIT_SUCCESS {
+  type: typeof UPDATE_PROFIT_SUCCESS,
+  loading: boolean,
+  payload: res
+}
+
+
 export interface initalState {
     loading: boolean,
     payload?: res,
     error?: typeof Error
+
+}
+
+export interface UpdateProfitinitalState {
+  loading: boolean,
+  payload?: res,
+  error?: typeof Error
 
 }
