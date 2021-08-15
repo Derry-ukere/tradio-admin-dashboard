@@ -1,4 +1,4 @@
-import { GET_ALL_CLIENT_FAIL,GET_ALL_CLIENT_LOADING,GET_ALL_CLIENT_SUCCESS } from '../constants/getAllClients';
+import { GET_ALL_CLIENT_FAIL,GET_ALL_CLIENT_LOADING,GET_ALL_CLIENT_SUCCESS,GET_ALL_ADMIN_FAIL,GET_ALL_ADMIN_LOADING,GET_ALL_ADMIN_SUCCESS } from '../constants/getAllClients';
 
 export interface client {
     overview: {
@@ -60,9 +60,21 @@ export interface GET_ALL_CLIENT_FAIL {
     error: typeof Error
 }
 
+export interface GET_ALL_ADMIN_FAIL {
+  type: typeof GET_ALL_ADMIN_FAIL
+  loading: boolean,
+  error: typeof Error
+}
+
 export interface GET_ALL_CLIENT_LOADING {
     type: typeof GET_ALL_CLIENT_LOADING
     loading: boolean,
+
+}
+
+export interface GET_ALL_ADMIN_LOADING {
+  type: typeof GET_ALL_ADMIN_LOADING
+  loading: boolean,
 
 }
 
@@ -70,15 +82,33 @@ export interface GET_ALL_CLIENT_LOADING {
 
 export type actionType = GET_ALL_CLIENT_FAIL | GET_ALL_CLIENT_LOADING | GET_ALL_CLIENT_SUCCESS;
 
+export type getAminactionType = GET_ALL_ADMIN_FAIL | GET_ALL_ADMIN_LOADING | GET_ALL_ADMIN_SUCCESS;
+
+
 
 export interface GET_ALL_CLIENT_SUCCESS {
     type: typeof GET_ALL_CLIENT_SUCCESS,
     loading: boolean,
     payload: res
 }
+
+
+export interface GET_ALL_ADMIN_SUCCESS {
+  type: typeof GET_ALL_ADMIN_SUCCESS,
+  loading: boolean,
+  payload: any
+}
 export interface initalState {
     loading: boolean,
     payload?: res,
     error?: typeof Error
+
+}
+
+
+export interface AllAdminInitalState {
+  loading: boolean,
+  payload?: any,
+  error?: typeof Error
 
 }

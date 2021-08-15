@@ -1,4 +1,4 @@
-import { GET_ONE_CLIENT_FAIL,GET_ONE_CLIENT_LOADING,GET_ONE_CLIENT_SUCCESS } from '../constants/getSingleClient';
+import { GET_ONE_CLIENT_FAIL,GET_ONE_CLIENT_LOADING,GET_ONE_CLIENT_SUCCESS,DELETE_ONE_CLIENT_FAIL,DELETE_ONE_CLIENT_LOADING,DELETE_ONE_CLIENT_SUCCESS } from '../constants/getSingleClient';
 
 export interface client {
     overview: {
@@ -30,6 +30,7 @@ export interface client {
      availableMargin: number,
      depositThisMonth: number,
      lastDeposit: number
+     profit : number,
    },
    affiliateStatus: {
      total: number,
@@ -47,6 +48,7 @@ export interface client {
    _id: string,
    username: string,
    email: string,
+   fullname: string,
    password: string,
    __v: 0
  }
@@ -61,15 +63,27 @@ export interface GET_ONE_CLIENT_FAIL {
     error: typeof Error
 }
 
+export interface DELETE_ONE_CLIENT_FAIL {
+  type: typeof DELETE_ONE_CLIENT_FAIL
+  loading: boolean,
+  error: typeof Error
+}
+
 export interface GET_ONE_CLIENT_LOADING {
     type: typeof GET_ONE_CLIENT_LOADING
     loading: boolean,
 
 }
 
+export interface DELETE_ONE_CLIENT_LOADING {
+  type: typeof DELETE_ONE_CLIENT_LOADING
+  loading: boolean,
+}
 
 
 export type actionType = GET_ONE_CLIENT_FAIL | GET_ONE_CLIENT_LOADING | GET_ONE_CLIENT_SUCCESS;
+export type deletClientactionType = DELETE_ONE_CLIENT_FAIL | DELETE_ONE_CLIENT_LOADING | DELETE_ONE_CLIENT_SUCCESS;
+
 
 
 export interface GET_ONE_CLIENT_SUCCESS {
@@ -77,9 +91,21 @@ export interface GET_ONE_CLIENT_SUCCESS {
     loading: boolean,
     payload: res
 }
+
+export interface DELETE_ONE_CLIENT_SUCCESS {
+  type: typeof DELETE_ONE_CLIENT_SUCCESS,
+  loading: boolean,
+  payload: res
+}
+
 export interface initalState {
     loading: boolean,
     payload?: res,
     error?: typeof Error
+}
 
+export interface deleteInitalState {
+  loading: boolean,
+  payload?: res,
+  error?: typeof Error
 }

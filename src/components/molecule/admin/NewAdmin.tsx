@@ -1,6 +1,38 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import {BeatLoader} from 'react-spinners';
+import { useHistory} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {registerAction} from '../../../actions/register';
+import {RootState} from '../../../store';
 
 const ProfileSettings = () => {
+  const [name, setname] = useState('');
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const dispatch = useDispatch();
+  const clientRegister = useSelector( (state : RootState) => state.register);
+  const {loading,error,payload} = clientRegister;
+  const history = useHistory();
+
+
+  useEffect(()=>{
+    if(payload){
+      history.push('/add-admin');
+    }
+    if(error){
+      alert(error);
+    }
+  },[dispatch,payload]);
+
+
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(name,email,password);
+    dispatch(registerAction.register(name,email,password));
+
+  };
   return (
     <div className="col-xl-12">
       <div className="row">
@@ -10,34 +42,23 @@ const ProfileSettings = () => {
               <h4 className="card-title">Admin Information</h4>
             </div>
             <div className="card-body">
-              <form method="post" name="myform" className="personal_validate" noValidate={true}>
+              <form  name="myform" className="personal_validate" noValidate={true} onSubmit = {handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">Your Name</label>
-                    <input type="text" className="form-control" placeholder="Saiful Islam" name="fullname" />
+                    <label className="mr-sm-2">Admin Name</label>
+                    <input type="text" className="form-control" required placeholder="Enter Admin Name" name="fullname" value = {name} onChange = {(e) => setname(e.target.value)} />
+                  </div>
+                  
+                  <div className="form-group col-xl-6 col-md-6">
+                    <label className="mr-sm-2">Admin Email</label>
+                    <input type="email" required className="form-control" placeholder="Enter Admin Email" name="permanentaddress"  value = {email} onChange = {(e) => setemail(e.target.value)}/>
                   </div>
                   <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">Email</label>
-                    <input type="email" className="form-control" placeholder="Hello@example.com" name="email" />
-                  </div>
-                  <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">Date of birth</label>
-                    <input type="text" className="form-control hasDatepicker" placeholder="10-10-2020" id="datepicker" autoComplete="off" name="dob" />
-                  </div>
-                  <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">Present Address</label>
-                    <input type="text" className="form-control" placeholder="56, Old Street, Brooklyn" name="presentaddress" />
-                  </div>
-                  <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">Permanent Address</label>
-                    <input type="text" className="form-control" placeholder="123, Central Square, Brooklyn" name="permanentaddress" />
-                  </div>
-                  <div className="form-group col-xl-6 col-md-6">
-                    <label className="mr-sm-2">City</label>
-                    <input type="text" className="form-control" placeholder="New York" name="city" />
+                    <label className="mr-sm-2">Admin Password</label>
+                    <input type="password" className="form-control" placeholder="Enter Password" required name="city" value = {password}  onChange = {(e) => setpassword(e.target.value)} />
                   </div>
                   <div className="form-group col-12">
-                    <button className="btn btn-success px-4">Create New Admin</button>
+                    {loading ? <BeatLoader color = 'white' /> :<button type="submit" className="btn btn-success px-4">Create New Admin</button>}
                   </div>
                 </div>
               </form>

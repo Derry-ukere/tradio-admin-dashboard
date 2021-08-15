@@ -29,4 +29,27 @@ export default class getClientReducers {
               
       }
     };
+
+    static  updateProfit = (state:clientTypes.UpdateProfitinitalState = defaultState, action:clientTypes.profitActionType ) : clientTypes.initalState  => {
+      switch (action.type) {
+        case constants.UPDATE_PROFIT_LOADING:
+          return {
+            loading : true
+          };
+        case constants.UPDATE_PROFIT_SUCCESS:
+          return {
+            loading : false,
+            payload:action.payload,
+          }; 
+        case constants.UPDATE__PROFIT_FAIL:
+          return {
+            loading : false,
+            error: action.error
+          };    
+          
+        default:
+          return state;
+              
+      }
+    };
 }

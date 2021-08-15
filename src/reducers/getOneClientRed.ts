@@ -29,6 +29,29 @@ export default class getClientReducers {
               
       }
     };
+
+    static  deleteClient = (state:clientTypes.deleteInitalState = defaultState, action:clientTypes.deletClientactionType ) : clientTypes.initalState  => {
+      switch (action.type) {
+        case constants.DELETE_ONE_CLIENT_LOADING:
+          return {
+            loading : true
+          };
+        case constants.DELETE_ONE_CLIENT_SUCCESS:
+          return {
+            loading : false,
+            payload:action.payload,
+          }; 
+        case constants.DELETE_ONE_CLIENT_FAIL:
+          return {
+            loading : false,
+            error: action.error
+          };    
+          
+        default:
+          return state;
+              
+      }
+    };
 }
 
 

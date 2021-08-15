@@ -1,8 +1,26 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {loadingAction} from '../../../actions/getAllClientsAct';
+import {RootState} from '../../../store';
 import {Link} from 'react-router-dom';
 
 
 const History = () => {
+  const dispatch = useDispatch();
+  const allClients = useSelector( (state : RootState) => state.allAdmins);
+  const [AllAdmin, setAllAdmin] = useState<any>([]);
+  const {error,payload} = allClients;
+
+  useEffect(() =>{
+    if(payload){
+      setAllAdmin(payload);
+    }
+  },[payload,error ]);
+
+  useEffect(() =>{
+    dispatch(loadingAction.getAllAdmin());
+  },[ ]);
+
   return (
     <div className="col-xl-12">
       <Link to = '/new-admin'><button className="btn btn-success waves-effect px-4" style = {{margin:'20px'}}>Add New Admin User</button></Link>
@@ -16,30 +34,30 @@ const History = () => {
               <table className="table table-striped mb-0 table-responsive-sm">
                 <thead>
                   <tr>
-                    <th>Transaction ID</th>
+                    <th>Admin Id</th>
                     <th>Name</th>
-                    <th>Country</th>
-                    <th>Amount</th>
-                    <th>Location</th>
-                    <th>Balance</th>
+                    <th>Email</th>
                     <th></th>
                     <th></th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>#565845522</td>
-                    <td>January 10, 2020</td>
-                    <td>Realized P&amp;L</td>
-                    <td>0.254782 BTC</td>
-                    <td>Completed</td>
-                    <td>0.125476 BTC</td>
-                    <td>
-                      <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
-                    </td>
-      
-                  </tr>
+                  {
+                    AllAdmin.map((admin : any, index : number) =>(
+                      <tr key = {index}>
+                        <td>{admin._id}</td>
+                        <td>{admin.name}</td>
+                        <td>{admin.email}</td>
+                        <td>
+                          <button className="btn btn-success waves-effect px-4" style = {{ backgroundColor : 'red'}}> <a href="#"><i className="bi bi-trash" /></a></button>
+                        </td>
+        
+                      </tr>
+
+                    ))
+                  }
+                 
                 </tbody>
               </table>
             </div>
