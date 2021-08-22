@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,} from 'react';
 import {Link} from 'react-router-dom';
 // import {BeatLoader} from 'react-spinners';
 // import { useHistory} from 'react-router-dom';
@@ -18,9 +18,9 @@ const History = () => {
   const deleteClient = useSelector( (state : RootState) => state.deleteClient);
   const {error : deleteError,payload : deletePayload} = deleteClient;
 
-
   // const history = useHistory();
   
+ 
 
   useEffect(()=>{
     dispatch(loadingAction.main());
@@ -43,16 +43,16 @@ const History = () => {
   },[deletePayload,deleteError]);
 
   useEffect(()=>{
+    // console.log('warn is --', warn);
+
     if(payload){
       // console.log('all clients--', payload);
     }
     console.log('error occured', error);
-  },[dispatch, payload, error]);
+  },[dispatch, payload, error,]);
 
   const handleClick = (id : string) =>{
-    console.log('delete client of id--', id);
     dispatch( singleClientAction.deleteClient(id));
-
   };
 
   return (
@@ -105,6 +105,7 @@ const History = () => {
                       <td>
                         <Link to = {`/settings/${client._id}`}><button className="btn btn-success waves-effect px-4">Edit</button></Link>
                       </td>
+                    
                     </tr>
                   )}
                   
