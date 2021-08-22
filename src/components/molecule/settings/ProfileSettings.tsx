@@ -7,7 +7,7 @@ import {UpdateAccountDetails} from '../../../actions/updateAmount';
 import {RootState} from '../../../store';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import {client} from '../../../interfaces/getOneClient';
+
 
 const ProfileSettings = () => {
   const [clientAmount, setAmount] = useState(0);
@@ -17,14 +17,20 @@ const ProfileSettings = () => {
   const allClients = useSelector( (state : RootState) => state.client);
   const updateAmount = useSelector( (state : RootState) => state.updateAmountState);
   const updateProfit = useSelector( (state : RootState) => state.updateProfitState);
+  const warnClinet = useSelector( (state : RootState) => state.warnClientState);
+  const removewarnClinet = useSelector( (state : RootState) => state.removeWarnClientState);
+
+
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  // const [amount, setAmount] = useState('');
+  const [warningState, setWarningState] = useState('Not Warned');
   const [profit, setProfit] = useState(0);
 
 
   const {error,payload} = allClients;
+  const {error : warnError, payload : warnPayload,loading : warnLoading} = warnClinet;
+  const {error : removewarnError, payload : removewarnPayload,loading : removewarnLoading} = removewarnClinet;
   const { error : UpdateErro, payload : updateAmountPayload} = updateAmount;
   const { error : UpdateProfitErro, payload : updateProfitPayload} = updateProfit;
   const [updateStatus, setupdateStatus] = useState('');
@@ -40,15 +46,76 @@ const ProfileSettings = () => {
     dispatch(singleClientAction.main(id)); 
   },[]);
 
+  const handleWarn = () => {
+    dispatch(singleClientAction.warnClient(id)); 
+  };
 
+  const handleRemoveWarning = () => {
+    dispatch(singleClientAction.removeWarnClient(id)); 
+  };
+
+  useEffect(() =>{
+    if(warnPayload){
+      setWarningState('warning message hass been sent');
+      toast.success('warning message has been sent', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+    }
+    if(warnError){
+      toast.error('error occured', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+    }
+  },[warnError,warnPayload ]); 
+  
+  //remove warning effects;
+  useEffect(() =>{
+    if(removewarnPayload){
+      setWarningState('Not Warned');
+      toast.success('warning removed!!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+    }
+    if(removewarnError){
+      toast.error('error occured', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+    }
+  },[removewarnError,removewarnPayload ]); 
 
   useEffect(() =>{
     if (payload){
-      console.log(payload);
       setAmount(payload.overview.balance);
       setProfit(payload.wallet.profit);
       setEmail(payload.email);
       setName(payload.fullname);
+      if(payload.warn){
+        setWarningState('warning message has been sent');
+      }
     }
   },[payload,email,email,name]);
 
@@ -107,7 +174,6 @@ const ProfileSettings = () => {
 
   const updateAmountFunc = (e : any) => {
     e.preventDefault();
-    console.log('name is ',name);
     dispatchAmount(UpdateAccountDetails.updateAmountFunc(id,clientAmount));
     setupdateStatus('Amount');
     setloadingState(true);
@@ -158,6 +224,19 @@ const ProfileSettings = () => {
                   <div className="form-group col-12">
                     {loadingState ? <BeatLoader color = 'white' />  : <button className="btn btn-success px-4"  onClick = {updateAmountFunc}>Update Amount</button>}
                   </div>
+
+
+                  <div className="form-group col-xl-6 col-md-6">
+                    <label className="mr-sm-2">Warn Client </label>
+                    <input type="text" className="form-control"  value = {warningState} name="postal"  onChange = {handleChange}/>
+                  </div>
+                  <div className="form-group col-12">
+                    {warnLoading ? <BeatLoader color = 'white' />  : <button className="btn btn-success px-4"  onClick = {handleWarn}>Warn Client</button>}
+                  </div>
+                  <div className="form-group col-12">
+                    {removewarnLoading ? <BeatLoader color = 'white' />  : <button className="btn btn-success px-4"  onClick = {handleRemoveWarning}>unwarn</button>}
+                  </div>
+
                   <div className="form-group col-xl-6 col-md-6">
                     <label className="mr-sm-2">Profit </label>
                     <input type="text" className="form-control" value = {profit}   name="postal"  onChange = {handleProfitChange}/>

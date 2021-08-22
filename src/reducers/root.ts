@@ -14,7 +14,9 @@ export const rootReducer = combineReducers({
   allAdmins:AllClient.getAllMin,
   client:OneClient.get,
   deleteClient:OneClient.deleteClient,
+  warnClientState:OneClient.warnClient,
+  removeWarnClientState:OneClient.RemovearnClient,
+  senndMailState:OneClient.sendMail,
   updateAmountState:UpdateAmount.get,
   updateProfitState:UpdateAmount.updateProfit,
-
 });

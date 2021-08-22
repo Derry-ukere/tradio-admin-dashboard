@@ -1,6 +1,24 @@
-import { GET_ONE_CLIENT_FAIL,GET_ONE_CLIENT_LOADING,GET_ONE_CLIENT_SUCCESS,DELETE_ONE_CLIENT_FAIL,DELETE_ONE_CLIENT_LOADING,DELETE_ONE_CLIENT_SUCCESS } from '../constants/getSingleClient';
+import { 
+  GET_ONE_CLIENT_FAIL,
+  GET_ONE_CLIENT_LOADING,
+  GET_ONE_CLIENT_SUCCESS,
+  DELETE_ONE_CLIENT_FAIL,
+  DELETE_ONE_CLIENT_LOADING,
+  DELETE_ONE_CLIENT_SUCCESS,
+  WARN_ONE_CLIENT_FAIL,
+  WARN_ONE_CLIENT_LOADING,
+  WARN_ONE_CLIENT_SUCCESS ,
+  REMOVEWARN_ONE_CLIENT_FAIL,
+  REMOVEWARN_ONE_CLIENT_LOADING,
+  REMOVEWARN_ONE_CLIENT_SUCCESS,
+  SEND_MAIL_LOADING,
+  SEND_MAIL_FAIL,
+  SEND_MAIL_SUCCESS,
+
+} from '../constants/getSingleClient';
 
 export interface client {
+  
     overview: {
      balance: number,
      emailVerified: boolean,
@@ -49,13 +67,30 @@ export interface client {
    username: string,
    email: string,
    fullname: string,
+   warn : boolean,
    password: string,
    __v: 0
  }
 
  type res = client;
 
- 
+export interface SEND_MAIL_FAIL {
+  type: typeof SEND_MAIL_FAIL
+  loading: boolean,
+  error: typeof Error
+}
+
+export interface SEND_MAIL_LOADING {
+  type: typeof SEND_MAIL_LOADING
+  loading: boolean,
+}
+
+export interface SEND_MAIL_SUCCESS {
+  type: typeof SEND_MAIL_SUCCESS,
+  loading: boolean,
+  payload: any
+}
+
 
 export interface GET_ONE_CLIENT_FAIL {
     type: typeof GET_ONE_CLIENT_FAIL
@@ -67,6 +102,38 @@ export interface DELETE_ONE_CLIENT_FAIL {
   type: typeof DELETE_ONE_CLIENT_FAIL
   loading: boolean,
   error: typeof Error
+}
+
+export interface WARN_ONE_CLIENT_FAIL {
+  type: typeof WARN_ONE_CLIENT_FAIL
+  loading: boolean,
+  error: typeof Error
+}
+export interface WARN_ONE_CLIENT_LOADING {
+  type: typeof WARN_ONE_CLIENT_LOADING
+  loading: boolean,
+}
+export interface WARN_ONE_CLIENT_SUCCESS {
+  type: typeof WARN_ONE_CLIENT_SUCCESS,
+  loading: boolean,
+  payload: any
+}
+
+export interface REMOVEWARN_ONE_CLIENT_FAIL {
+  type: typeof REMOVEWARN_ONE_CLIENT_FAIL
+  loading: boolean,
+  error: typeof Error
+}
+
+export interface REMOVEWARN_ONE_CLIENT_LOADING {
+  type: typeof REMOVEWARN_ONE_CLIENT_LOADING
+  loading: boolean,
+}
+
+export interface REMOVEWARN_ONE_CLIENT_SUCCESS {
+  type: typeof REMOVEWARN_ONE_CLIENT_SUCCESS,
+  loading: boolean,
+  payload: any
 }
 
 export interface GET_ONE_CLIENT_LOADING {
@@ -83,6 +150,11 @@ export interface DELETE_ONE_CLIENT_LOADING {
 
 export type actionType = GET_ONE_CLIENT_FAIL | GET_ONE_CLIENT_LOADING | GET_ONE_CLIENT_SUCCESS;
 export type deletClientactionType = DELETE_ONE_CLIENT_FAIL | DELETE_ONE_CLIENT_LOADING | DELETE_ONE_CLIENT_SUCCESS;
+export type warnClientactionType = WARN_ONE_CLIENT_FAIL | WARN_ONE_CLIENT_LOADING | WARN_ONE_CLIENT_SUCCESS;
+export type removeWarnClientactionType = REMOVEWARN_ONE_CLIENT_FAIL | REMOVEWARN_ONE_CLIENT_LOADING | REMOVEWARN_ONE_CLIENT_SUCCESS;
+export type sendMailActionTypes = SEND_MAIL_FAIL | SEND_MAIL_LOADING | SEND_MAIL_SUCCESS;
+
+
 
 
 
@@ -107,5 +179,23 @@ export interface initalState {
 export interface deleteInitalState {
   loading: boolean,
   payload?: res,
+  error?: typeof Error
+}
+
+export interface warnInitalState {
+  loading: boolean,
+  payload?: any,
+  error?: typeof Error
+}
+
+export interface RemoveWarnInitalState {
+  loading: boolean,
+  payload?: any,
+  error?: typeof Error
+}
+
+export interface sendMailInitalState {
+  loading: boolean,
+  payload?: any,
   error?: typeof Error
 }
